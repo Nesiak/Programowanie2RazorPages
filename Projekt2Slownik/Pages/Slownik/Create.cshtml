@@ -1,0 +1,49 @@
+﻿@page
+@model Projekt2Slownik.Pages.Slownik.CreateModel
+@{
+}
+<div class="text-center container">
+    <p>W odpowiednie miejsca wprowadź słowa i zatwierdź przyciskiem.</p>
+    <div class="container text-center">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container" style="padding:30px">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Words.Pl">Polskie słowo</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input asp-for="Words.Pl" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Words.No">Norwieskie słowo</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input asp-for="Words.No" class="form-control" />
+                        </div>
+                        <div class="col col-md-2 px-0 row col-lg-2">
+                                <img src="~/jpgi/zwierzeta/hamster.png" class="rounded row-no-margin" />
+                        </div>
+                            
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2 offset-sm-2">
+                            <input type="submit" value="Dodaj" class="btn btn-primary form-control" />
+                        </div>
+                        <div class="col-sm-2">
+                            <a asp-page="Index" class="btn btn-success form-control">Wróć do listy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

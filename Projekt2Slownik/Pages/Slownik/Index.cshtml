@@ -1,0 +1,57 @@
+﻿@page
+@model Projekt2Slownik.Pages.Slownik.IndexModel
+@{
+    ViewData["Title"] = "Słówka z bazy";
+}
+<div class="container row">
+    <div class="col-6 text-center container">
+        <h2 class="text-info align-content-center">Lista słówek</h2>
+    </div>
+@if(Model.Message != null)
+{
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @Model.Message
+    </div>
+}   
+</div>
+<form method="post">
+    @if (Model.Wordss.Count() > 0)
+    {
+        <br /><br />
+        <table class="table table-striped border">
+            <tr class="table-secondary" style="color:black">
+                <th>
+                    Polskie słowo
+                </th>
+                <th>
+                    Norweskie słowo
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Wordss)
+            {
+                <tr class="table-light" style="color:black">
+                    <td>
+                        @Html.DisplayFor(m => item.Pl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.No)
+                    </td>
+                    <td>
+                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Na pewno chcesz usunąć?')" class="btn btn-danger btn-sm">Usuń</button>
+                        <a asp-route-id="@item.Id" asp-page="Edit" class="btn btn-success btn-sm">Edytuj</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>
+            Nie ma żadnych słówek.
+        </p>
+    }
+</form>

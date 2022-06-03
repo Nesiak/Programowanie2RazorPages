@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Słowniczek</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @await Html.PartialAsync("_Favicons")
+</head>
+<body class="bg-warning">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-info border-bottom box-shadow mb-3">
+            <div class="container">
+                <img src="~/icon.png" class="rounded row-no-margin" />
+                <a class="navbar-brand col-md-2 px-0 row col-lg-2" asp-area="" asp-page="/Index">Strona główna</a>
+                <a class="navbar-brand col-md-2 px-0 row col-lg-2" asp-area="" asp-page="/Slownik/Index">Słowniczek</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand col-md-2 px-0 row col-lg-2" asp-area="" asp-page="/Slownik/Create">Dodaj nowe słowo</a>
+                <div class="container-fluid row row-no-margin">
+                    <div class="col col-md-4 px-0 row col-lg-4">
+                        <img src="~/jpgi/pl.png" class="rounded img-fluid" />
+                    </div>
+                    <div class="col col-md-4 px-0 row col-lg-4">
+                        <img src="~/jpgi/no.png" class="rounded img-fluid" />
+                    </div>
+                </div>
+             </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted bg-info">
+        <div class="container">
+            &copy; 2022 - projekt2 - Mateusz Szczepański
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
